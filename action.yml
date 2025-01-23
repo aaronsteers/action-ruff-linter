@@ -28,16 +28,18 @@ inputs:
   reviewdog_flags:
     description: 'Additional reviewdog flags'
     default: ''
-  ### Flags for <linter-name> ###
-  locale:
-    description: '-locale flag of misspell. (US/UK)'
-    default: ''
+  ### Flags for ruff ###
+  ruff_command:
+    description: 'Allows you to override the ruff entrypoint. For example, use `poetry run ruff` to use the version defined in your Poetry repo. Else, the ruff version used will be from `pip install ruff`.'
+    default: 'ruff'
+  target:
+    description: 'Target directory to run ruff.'
+    default: '.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
 
 # Ref: https://haya14busa.github.io/github-action-brandings/
-# TODO: update branding if you want.
 branding:
   icon: 'check'
-  color: 'blue'
+  color: 'purple'
